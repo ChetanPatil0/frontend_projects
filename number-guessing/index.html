@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUMBER GUESSING GAME | JsProject-1</title>
+    <link rel="shortcut icon" href="logo_ (2).png" type="image/x-icon">
+    <style>
+        main{
+            border: crimson 3px solid;
+            border-radius: 10px;
+            padding:10px 40px;
+            text-align: center;
+            width: 30%;
+            margin: auto;
+        }
+        #change-btn,#start-btn{
+            padding: 5px 10px;
+            background-color: green;
+        }
+        #msg{
+            color: green;
+        }
+        input{
+            margin: 10px;
+            padding: 20px;
+            font-size: 20px;
+            color:white;
+            background-color:crimson;
+            border-radius: 5px;
+            box-shadow:black 0px 0px 13px 1px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>NUMBER GUESSING GAME</h1>
+        <div>
+            <div id="correct-number">
+                <h1 id="msg"></h1>
+                <input type="button" value="CHANGE" id="change-btn" onclick="change_position(); ">
+                <input type="button" value="START" id="start-btn" onclick="change_position(); ">
+            </div>
+           <input type="button" value="0" id="btn-1" onclick="get_btn_1_val(); guess_number();">
+           <input type="button" value="0" id="btn-2" onclick="get_btn_2_val(); guess_number();">
+           <input type="button" value="0" id="btn-3" onclick="get_btn_3_val(); guess_number();">
+           <p>** Click on any number to guess correct number **</p>
+        </div>
+    </main>
+    <script >
+        let msg = document.getElementById('msg');
+        let change_btn =document.getElementById('change-btn');
+        let start_btn=document.getElementById('start-btn');
+        let change_posi=null;
+        let btn1,btn2,btn3;
+        let btn_val=null;
+        let random_num_1,random_num_2,random_num_3;
+       function change_position()
+       {
+        
+             random_num_1 = Math.round(Math.random()*100);
+             random_num_2 = Math.round(Math.random()*100);
+             random_num_3 = Math.round(Math.random()*100);
+          change_posi=Math.floor(Math.random() * (3-1+1))+1;
+          //console.log(change_posi);
+          switch(change_posi)
+          {
+            case 1:    
+            btn1 = document.getElementById('btn-1').value = random_num_1;
+            btn2 = document.getElementById('btn-2').value = random_num_2;
+            btn3 = document.getElementById('btn-3').value = random_num_3;
+            break;
+            case 2:    
+             btn1 = document.getElementById('btn-1').value = random_num_2;
+             btn2 = document.getElementById('btn-2').value = random_num_1;
+             btn3 = document.getElementById('btn-3').value = random_num_3;
+            break;
+            case 3:    
+             btn1 = document.getElementById('btn-1').value = random_num_3;
+             btn2 = document.getElementById('btn-2').value = random_num_2;
+             btn3 = document.getElementById('btn-3').value = random_num_1;
+            break;
+          }
+          console.log(random_num_1);
+       }
+       
+      function get_btn_1_val()
+        {
+          btn_val = document.getElementById('btn-1').value; 
+        }
+        
+      function get_btn_2_val()
+        {
+            btn_val = document.getElementById('btn-2').value;  
+        }
+        
+      function get_btn_3_val()
+        {
+            btn_val = document.getElementById('btn-3').value;  
+        }
+        function guess_number()
+        { 
+            if(btn_val == random_num_1){
+                document.getElementById('change-btn').style ="display:none";
+                document.getElementById('start-btn').style ="display:none";
+                msg.innerHTML="Congratulations! Correct Choice";
+                msg.style="color:green";
+            }
+            else{
+                
+               change_btn.style ="display:none";
+               start_btn.style ="display:none";
+                msg.innerHTML="Wrong Choice! Better Luck Next Time";
+                msg.style="color:red";
+                
+            }
+    
+            setTimeout(function () {
+                change_btn.style="display:content";
+                start_btn.style="display:content";
+                msg.innerHTML="";
+                    change_position();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
