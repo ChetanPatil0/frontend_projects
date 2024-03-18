@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock </title>
+    <style>
+        body{
+            background-color: #1b1b1b;
+        }
+        main{
+            max-width:35%;
+            margin: auto;
+            margin-top: 30vh;
+        }
+        .watch-body{
+            border: orange 3px solid;
+            border-radius: 5px;
+            text-transform: uppercase;
+            color:#fff;
+            text-align: center;
+        }
+        .day_date{
+            display: flex;
+            justify-content: space-around;
+            line-height: 10px;
+        }
+        .curr-time {
+            font-size: 70px;
+            line-height: 20px;
+        }
+        .watch-footer{
+            margin: 0px 50px;
+            border-radius: 10px;
+            border-top: 7px solid orange;
+            box-shadow: 0px 15px 20px crimson; 
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+          <div class="watch-body">
+            <div class="day_date"><h3 class="date"></h3><h3 class="day"></h3></div>
+                 <h1 class="curr-time">OOPS SOORY</h1>
+          </div>
+          <div class="watch-footer"></div>
+    </main>
+    
+
+
+
+
+    <!-- Js program -->
+    <script>
+        let display = document.querySelector('.curr-time');
+        const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+         setInterval(()=>{
+            let datetime = new Date();
+            let time = datetime.toLocaleTimeString();
+            let date = datetime.toLocaleDateString();
+            let day = datetime.getDay();
+            display.innerHTML=time;
+            document.querySelector('.date').innerHTML=date;
+            document.querySelector('.day').innerHTML=weekday[day];
+        },1000);
+      
+    </script>
+</body>
+</html>
