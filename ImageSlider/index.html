@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body{
+        background-color: #1b1b1b;
+        }
+        h1{
+            text-align: center;
+            background-color: crimson;
+            color: #fff;
+        }
+        main{
+            width: 80%;
+            height: 50vh;
+            margin: auto;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+        }
+        .Slider{
+            display: flex;
+            transform: translateX(-130.5vh);
+        }
+        img{
+            width: 100%;
+            height: 50vh;
+
+        }
+        button{
+            color: crimson;
+            font-size: 30px;
+            height: 40px;
+            background: none;
+            border: 3px solid crimson;
+            margin: 20px;
+            z-index: 1;
+        }
+        button:hover{
+            background-color: crimson;
+            color: #1b1b1b;
+        }
+        
+    
+    </style>
+</head>
+<body>
+    <h1>Image Slider USING HTML,CSS & JavaScript</h1>
+    <main>
+        <button id="moveleft"><<</button>
+        <div class="Slider">
+            <img src="images/slide4.jpg" alt="slide_4">
+            <img src="images/slide1.jpg" alt="slide_1" >
+            <img src="images/slide2.jpg" alt="slide_2">
+            <img src="images/slide3.jpg" alt="slide_3">
+            <img src="images/slide4.jpg" alt="slide_4">
+            <img src="images/slide1.jpg" alt="slide_1" >
+        </div>
+       <button id="moveright">>></button>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
